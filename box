@@ -1,2 +1,0 @@
-#!/usr/bin/perl
-s/\\/\\\\/g, s/\n/\\n/sg, print for <STDIN>;

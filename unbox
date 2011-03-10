@@ -1,2 +1,0 @@
-#!/usr/bin/perl
-s/\\(.)/$1 eq '\\' ? '\\' : $1 eq 'n' ? "\n" : $1/eg, print for <STDIN>;

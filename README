@@ -6,3 +6,12 @@ to use constructs similar to those in functional programming languages, but on
 the shell level.
 
 This project is uninspired at present and needs ideas.
+
+Examples:
+
+ls | each echo _                                        # The same as ls
+ls | each cat _                                         # Concatenates everything in this directory
+ls | each 'ln -s _ _.txt'                               # Symlinks each file as file.txt
+ls | each 'ln -s _ $(md5sum _ | awk "{print \$1}")'     # Symlinks each file as the MD5 of its contents
+ls | each 'test -f _ && echo _ || :'                    # Only print regular files
+ls | each 'echo _ $(($(wc -c < _) / $(wc -l < _)))'     # Display characters per line for each file
