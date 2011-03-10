@@ -4,3 +4,5 @@ Licensed under the terms of the MIT source code license
 These scripts provide a functional shell environment. This gives you the ability
 to use constructs similar to those in functional programming languages, but on
 the shell level.
+
+This project is uninspired at present and needs ideas.
