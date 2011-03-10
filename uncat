@@ -1,0 +1,5 @@
+#!/bin/bash
+
+temporary=${1:-$(mktemp)}
+echo $temporary
+cat > $temporary
