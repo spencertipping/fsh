@@ -7,7 +7,8 @@ the shell level.
 
 This project is uninspired at present and needs ideas.
 
-Examples:
+The 'each' command takes each line of input and maps it to _ in the command you
+give it. Iteration terminates if the command returns nonzero status.
 
 ls | each echo _                                        # The same as ls
 ls | each cat _                                         # Concatenates everything in this directory
@@ -15,3 +16,10 @@ ls | each 'ln -s _ _.txt'                               # Symlinks each file as 
 ls | each 'ln -s _ $(md5sum _ | awk "{print \$1}")'     # Symlinks each file as the MD5 of its contents
 ls | each 'test -f _ && echo _ || :'                    # Only print regular files
 ls | each 'echo _ $(($(wc -c < _) / $(wc -l < _)))'     # Display characters per line for each file
+
+The 'y' command repeats something until the command returns nonzero status. From
+a functional point of view, it's a sort of fixed point on system state.
+
+y ps -el | grep perl                                    # Print all Perl processes continuously
+y 'sleep 1 && ps -el' | grep perl                       # Print all Perl processes each second
+y 'sleep 1 && ps -el | grep perl | wc -l'               # Print the number of Perl processes each second
