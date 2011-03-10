@@ -1,4 +1,4 @@
 #!/bin/bash
-while read line && sh -c "$* '$line'"; do
+while read line && sh -c "${*/_/'$line'}"; do
   :
 done
