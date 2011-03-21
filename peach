@@ -1,0 +1,5 @@
+#!/bin/bash
+while read line; do
+  sh -c "${*//_/'$line'}" &
+done
+wait

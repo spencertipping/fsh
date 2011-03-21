@@ -26,7 +26,11 @@ ls | each 'test -d _ && ls _ | cat || echo _'           # Ditto, but this one ge
 And you can use it with things besides ls:
 
 ps -e | grep '\bdhclient\b' | cut -d' ' -f1 | each kill -9 _
-ifconfig | grep '^\w' | cut -d' ' -f1 | each ifconfig _ down
+ifconfig | grep '^\w' | sed 's/\s.*//' | each ifconfig _ down
+
+'peach' is like 'each', but runs its jobs in parallel:
+
+seq 1 10 | peach 'sleep 1 && echo _'                    # Returns after one second
 
 The 'y' command repeats something until the command returns nonzero status. From
 a functional point of view, it's a sort of fixed point on system state.
