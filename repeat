@@ -2,5 +2,5 @@
 repeat_count=$1
 shift
 for ((i = 0; i < repeat_count; ++i)); do
-  "$@"
+  eval "$@"
 done
