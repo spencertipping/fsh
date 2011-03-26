@@ -48,3 +48,9 @@ command | uncat bar                                     # Writes the output of c
 command | uncat                                         # Writes the output of command into a tempfile and prints the tempfile
 
 In general, uncat has the invariant that 'cat $(cmd | uncat)' is equivalent to 'cmd', modulo buffering.
+
+'times' repeats something a fixed number of times:
+
+times 10 echo hi                                        # Says 'hi' ten times
+
+This is useful for things like benchmarking.
