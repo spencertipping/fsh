@@ -1,4 +1,4 @@
 #!/bin/bash
-while sh -c "$*"; do
+while eval "$*"; do
   :
 done
